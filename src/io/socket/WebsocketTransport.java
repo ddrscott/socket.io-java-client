@@ -95,7 +95,7 @@ class WebsocketTransport extends WebSocketClient implements IOTransport {
 
     @Override
     public void onError(Exception ex) {
-        // TODO Auto-generated method stub
-
+        if(connection != null)
+            connection.onError(new SocketIOException(ex.getMessage(), ex));
     }
 }
